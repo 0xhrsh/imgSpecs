@@ -3,3 +3,4 @@ flake8
 Pillow
 djangorestframework
 requests
+gunicorn==19.9.0
