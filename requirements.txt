@@ -3,5 +3,5 @@ flake8
 Pillow
 djangorestframework
 requests
-gunicorn==19.9.0
-whitenoise==4.0
+gunicorn>=19.9.0
+whitenoise>=4.0
