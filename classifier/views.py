@@ -12,14 +12,10 @@ class FileUploadView(APIView):
     serializer_class = UploadSerializer
 
     def get(self, request, src):
-        url = src
-        print(url)
-        img = Image.open(BytesIO(requests.get(url).content))
+        img = Image.open(BytesIO(requests.get(src).content))
 
-        
         dom_color = img.getcolors(img.size[0]*img.size[1])[1][1]
         ans = {}
-
         ans['logo_border'] = '#%02x%02x%02x' % tuple(img.load()[0, 0])[: -1]
         ans['dominant_color'] = '#%02x%02x%02x' % dom_color[:-1]
 
