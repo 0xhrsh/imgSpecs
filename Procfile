@@ -1,0 +1,1 @@
+web: gunicorn imgSpecs.wsgi --log-file -
