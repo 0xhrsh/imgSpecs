@@ -16,7 +16,8 @@ class FileUploadView(APIView):
 
         dom_color = img.getcolors(img.size[0]*img.size[1])[1][1]
         ans = {}
-        ans['logo_border'] = '#%02x%02x%02x' % tuple(img.load()[0, 0])[: -1]
-        ans['dominant_color'] = '#%02x%02x%02x' % dom_color[:-1]
+        ans['url'] = src
+        ans['logo_border'] = '#%02x%02x%02x' % tuple(img.load()[0, 0])[0: 3]
+        ans['dominant_color'] = '#%02x%02x%02x' % dom_color[0:3]
 
         return Response(ans, status.HTTP_201_CREATED)
