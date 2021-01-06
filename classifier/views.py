@@ -11,11 +11,12 @@ from io import BytesIO
 class FileUploadView(APIView):
     serializer_class = UploadSerializer
 
-    def get_queryset(self, request):
-        url = self.kwargs['src']
+    def get(self, request, src):
+        url = src
+        print(url)
         img = Image.open(BytesIO(requests.get(url).content))
 
-        print()
+        
         dom_color = img.getcolors(img.size[0]*img.size[1])[1][1]
         ans = {}
 
